@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { CategoriaProductoModule } from './categoria-producto/categoria-producto.module';
 import { CategoriaProducto } from './categoria-producto/entity/categoria-producto.entity';
 import { CatalogoProductoModule } from './catalogo-producto/catalogo-producto.module';
+import { CatalogoProducto } from './catalogo-producto/entity/catalogo-producto.entity';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { CatalogoProductoModule } from './catalogo-producto/catalogo-producto.mo
           password: configService.get<string>('DB_PASSWORD'),
           port: parseInt(configService.get<string>('DB_PORT')),
           synchronize: configService.get<string>('STATE') !== 'produccion',
-          entities: [CategoriaProducto],
+          entities: [CategoriaProducto, CatalogoProducto],
         };
       },
     }),
