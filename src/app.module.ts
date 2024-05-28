@@ -3,6 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { CategoriaProductoModule } from './categoria-producto/categoria-producto.module';
+import { CategoriaProducto } from './categoria-producto/entity/categoria-producto.entity';
 
 @Module({
   imports: [
@@ -18,11 +20,11 @@ import { AppService } from './app.service';
           password: configService.get<string>('DB_PASSWORD'),
           port: parseInt(configService.get<string>('DB_PORT')),
           synchronize: configService.get<string>('STATE') !== 'produccion',
-          entities: [],
+          entities: [CategoriaProducto],
         };
       },
     }),
-  
+    CategoriaProductoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
