@@ -10,4 +10,7 @@ export class CategoriaProductoService {
     private repository: Repository<CategoriaProducto>,
   ) {}
 
+  findAll() {
+    return this.repository.find();
+  }
 }
