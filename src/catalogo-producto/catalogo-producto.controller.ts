@@ -1,6 +1,6 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { CatalogoProductoService } from './catalogo-producto.service';
-import { query } from 'express';
+import { IdCatalogoProductoDTO } from './dto/id-catalogo-producto.dto';
 
 @Controller('catalogo-producto')
 export class CatalogoProductoController {
@@ -12,7 +12,9 @@ export class CatalogoProductoController {
   }
 
   @Get('obtener-uno-por-id')
-  obtenerUnoPorId(@Query() query) {
-    return this.catalogoProductoService.findOneById(query.id_catalogo_producto);
+  obtenerUnoPorId(@Query() query: IdCatalogoProductoDTO) {
+    return this.catalogoProductoService.findOneById(
+      Number(query.id_catalogo_producto),
+    );
   }
 }
