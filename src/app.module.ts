@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CategoriaProductoModule } from './categoria-producto/categoria-producto.module';
 import { CategoriaProducto } from './categoria-producto/entity/categoria-producto.entity';
+import { CatalogoProductoModule } from './catalogo-producto/catalogo-producto.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { CategoriaProducto } from './categoria-producto/entity/categoria-product
       },
     }),
     CategoriaProductoModule,
+    CatalogoProductoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
