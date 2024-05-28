@@ -13,4 +13,10 @@ export class CatalogoProductoService {
   findAll() {
     return this.repository.find();
   }
+
+  findOneById(id_catalogo_producto: number) {
+    return this.repository.findOne({
+      where: { id_catalogo_producto },
+    });
+  }
 }

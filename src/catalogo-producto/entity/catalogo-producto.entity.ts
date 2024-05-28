@@ -15,7 +15,7 @@ export class CatalogoProducto {
   @Column({ type: String, nullable: false, length: 50 })
   nombre: string;
 
-  @Column({ type: String, nullable: false, length: 100 })
+  @Column({ type: String, nullable: false, length: 200 })
   descripcion: string;
 
   @Column({ type: Number, nullable: false })
